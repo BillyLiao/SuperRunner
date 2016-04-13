@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="Location" representedClassName="SexyRunner.Location" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longtitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="road" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Road" inverseName="locations" inverseEntity="Road" syncable="YES"/>
+        <relationship name="run" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Run" inverseName="locations" inverseEntity="Run" syncable="YES"/>
+        <relationship name="warField" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WarField" inverseName="locations" inverseEntity="WarField" syncable="YES"/>
+    </entity>
+    <entity name="Road" representedClassName="SexyRunner.Road" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Location" inverseName="road" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Run" representedClassName="SexyRunner.Run" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Location" inverseName="run" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="SexyRunner.User" syncable="YES">
+        <attribute name="tribe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tribePhoto" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="WarField" representedClassName="SexyRunner.WarField" syncable="YES">
+        <attribute name="annotationLatitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="annotationLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Location" inverseName="warField" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Location" positionX="27" positionY="72" width="128" height="135"/>
+        <element name="Road" positionX="0" positionY="45" width="128" height="120"/>
+        <element name="Run" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="User" positionX="0" positionY="99" width="128" height="75"/>
+        <element name="WarField" positionX="0" positionY="90" width="128" height="150"/>
+    </elements>
+</model>
